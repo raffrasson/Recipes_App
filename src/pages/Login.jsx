@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
   const toggleButton = () => {
     const REGEX_EMAIL = /\S+@\S+\.\S+/;
     const SIX = 6;
@@ -10,6 +12,15 @@ const Login = () => {
     const passwordVallied = password.length > SIX;
     return emailVallied && passwordVallied;
   };
+
+  const handleSaveLocalStorage = () => {
+    const userEmail = { email };
+    localStorage.setItem('user', JSON.stringify(userEmail));
+    localStorage.setItem('mealsToken', JSON.stringify(1));
+    localStorage.setItem('cocktailsToken', JSON.stringify(1));
+    history.push('/comidas');
+  };
+
   return (
     <div>
       <form>
@@ -35,6 +46,7 @@ const Login = () => {
           type="button"
           disabled={ !toggleButton() }
           data-testid="login-submit-btn"
+          onClick={ handleSaveLocalStorage }
         >
           Entrar
         </button>
