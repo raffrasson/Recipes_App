@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
 
-function Home({ history }) {
+function SearchDrinks({ history }) {
   return (
     <>
       <div>
@@ -16,8 +16,8 @@ function Home({ history }) {
   );
 }
 
-Home.propTypes = {
+SearchDrinks.propTypes = {
   history: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
-export default Home;
+export default SearchDrinks;

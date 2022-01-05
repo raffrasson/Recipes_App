@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-// incluir o import do componente Header
+import Header from '../components/Header';
 import FinishedRecipeCard from '../components/FinishedRecipeCard';
 import AppContext from '../context/AppContext';
 
@@ -17,7 +17,7 @@ function FinishedRecipes() {
   if (done !== null) {
     return (
       <div>
-        {/* <Header title="Receitas Feitas" /> => incluir header */}
+        <Header />
         <button
           type="button"
           data-testid="filter-by-all-btn"
@@ -61,7 +61,7 @@ function FinishedRecipes() {
   }
   return (
     <>
-      {/* <Header title="Receitas Feitas" /> => incluir header */}
+      <Header />
       <p>Nenhuma receita feita!</p>
     </>
   );

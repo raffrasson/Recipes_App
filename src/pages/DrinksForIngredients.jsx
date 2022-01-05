@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
 
-function Home({ history }) {
+function DrinksForIngredients({ history }) {
   return (
     <>
       <div>
@@ -16,8 +16,8 @@ function Home({ history }) {
   );
 }
 
-Home.propTypes = {
+DrinksForIngredients.propTypes = {
   history: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
-export default Home;
+export default DrinksForIngredients;
