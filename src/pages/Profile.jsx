@@ -2,17 +2,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Footer from '../components/Footer/Footer';
 
-function Home({ history }) {
+export default function Profile({ history }) {
   return (
-    <>
-      <h1>Comidas</h1>
+    <div>
+
       <Footer history={ history } />
-    </>
+    </div>
   );
 }
 
-Home.propTypes = {
+Profile.propTypes = {
   history: PropTypes.objectOf(PropTypes.object).isRequired,
 };
-
-export default Home;
