@@ -1,12 +1,21 @@
 import React from 'react';
-import Header from '../component/Header';
+import PropTypes from 'prop-types';
+import Header from '../components/Header';
+import Footer from '../components/Footer/Footer';
 
-function Drinks() {
+export default function Drinks({ history }) {
   return (
-    <div>
-      <Header />
-      <p>bebidas</p>
-    </div>
+    <>
+      <div>
+        <Header />
+      </div>
+      <div>
+        <Footer history={ history } />
+      </div>
+    </>
   );
 }
-export default Drinks;
+
+Drinks.propTypes = {
+  history: PropTypes.objectOf(PropTypes.object).isRequired,
+};

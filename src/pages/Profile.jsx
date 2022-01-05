@@ -1,11 +1,21 @@
 import React from 'react';
-import Header from '../component/Header';
+import PropTypes from 'prop-types';
+import Header from '../components/Header';
+import Footer from '../components/Footer/Footer';
 
-function Profile() {
+export default function Profile({ history }) {
   return (
-    <div>
-      <Header />
-    </div>
+    <>
+      <div>
+        <Header />
+      </div>
+      <div>
+        <Footer history={ history } />
+      </div>
+    </>
   );
 }
-export default Profile;
+
+Profile.propTypes = {
+  history: PropTypes.objectOf(PropTypes.object).isRequired,
+};
