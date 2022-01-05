@@ -37,7 +37,7 @@ function FinishedRecipeCard(props) {
         type="button"
         id="share"
         data-testid={ `${index}-horizontal-share-btn` }
-        src="src/images/shareIcon.svg"
+        src="src/images/sgithareIcon.svg"
         alt="compartilhar"
         onClick={ () => {
           copy((`http://localhost:3000/${type}s/${id}`)); // ref: https://stackoverflow.com/questions/49618618/copy-current-url-to-clipboard
