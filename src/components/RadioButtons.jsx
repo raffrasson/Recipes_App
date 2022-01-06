@@ -12,11 +12,11 @@ export default function RadioButtons() {
     }
     if (radio === 'name') {
       const result = await fetchNames(search);
-      console.log(result);
+      setRecipe(result);
     }
     if (radio === 'firstLetter') {
       const result = await fetchFirstName(search);
-      console.log(result);
+      setRecipe(result);
     }
   }
 

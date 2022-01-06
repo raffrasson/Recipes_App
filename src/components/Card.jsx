@@ -3,10 +3,12 @@ import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
 
 export default function Card() {
-  const { recipe } = useContext(AppContext); 
-  return (
-    <div>
-      {
+  const { recipe } = useContext(AppContext);
+
+  const renderCard = () => {
+    if (recipe === null) return;
+    if (recipe.meals) {
+      return (
         recipe.meals.map((card, index) => (
           <div
             data-testid={ `${index}-recipe-card` }
@@ -29,6 +31,14 @@ export default function Card() {
             </div>
           </div>
         ))
+      );
+    }
+  };
+
+  return (
+    <div>
+      {
+        renderCard()
       }
     </div>
   );
