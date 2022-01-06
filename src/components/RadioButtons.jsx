@@ -6,6 +6,9 @@ export default function RadioButtons() {
   const { radio, setRadio, search, setRecipe } = useContext(AppContext);
 
   async function handleClick() {
+    if ((search.length > 1) && (radio === 'firstLetter')) {
+      global.alert('Sua busca deve conter somente 1 (um) caracter');
+    }
     if (radio === 'ingredient') {
       const result = await fetchIngredient(search);
       setRecipe(result);
