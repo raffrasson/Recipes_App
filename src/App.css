@@ -15,6 +15,39 @@
   max-height: 80vh;
 }
 
+/*Estilização das classes*/
+
+.container-login{
+  height: 100vh;
+  width: 100%;  
+}
+
+.content-login { 
+  opacity: 0.9; 
+  background-color: #212121;
+  border-radius: 2rem 0 2rem 0;
+  padding: 2rem;
+}
+
+.form-login {
+max-width: 100%;
+width: 20rem;
+padding: 1rem;
+margin: auto;
+}
+
+.menuRadioButtons {
+margin: 2rem 0 5rem 0;
+}
+
+.footerButtons{
+width: 100%;  
+display: flex;
+justify-content: space-around;
+align-items: center;
+background-color: #212121;
+}
+
 /*
 #iceLeft {
   animation: clink .8s infinite ease;
@@ -33,7 +66,7 @@
   animation: shake 1.5s infinite ease;
   color: aliceblue;
   font-family: Montserrat , sans-serif;
-  font-size: 3em;
+  font-size: 3rem;
   font-weight: 900;
 }
 

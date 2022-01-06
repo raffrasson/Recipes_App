@@ -17,12 +17,16 @@ export default function Footer({ history }) {
   };
 
   return (
-    <footer data-testid="footer">
+    <footer data-testid="footer" className="footerButtons">
       <button
         type="button"
         data-testid="drinks-bottom-btn"
         src={ DRINK_ICON }
         onClick={ redirectToDrinksPage }
+        className="btn m-2 border-0"
+        data-toggle="tooltip"
+        data-placement="top"
+        title="Drinks"
       >
         <img
           src={ DRINK_ICON }
@@ -34,17 +38,27 @@ export default function Footer({ history }) {
         data-testid="explore-bottom-btn"
         onClick={ redirectToExplorePage }
         src={ EXPLORE_ICON }
+        className="btn m-2 border-0"
+        data-toggle="tooltip"
+        data-placement="top"
+        title="Explorar"
       >
         <img src={ EXPLORE_ICON } alt="EXPLORE" />
       </button>
+
       <button
         type="button"
         src={ MEAL_ICON }
         onClick={ redirectToMealsPage }
         data-testid="food-bottom-btn"
+        className="btn m-2 border-0"
+        data-toggle="tooltip"
+        data-placement="top"
+        title="Foods"
       >
         <img src={ MEAL_ICON } alt="MEAL" />
       </button>
+
     </footer>
   );
 }

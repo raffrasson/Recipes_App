@@ -9,12 +9,22 @@ export default function AppProvider({ children }) {
   const [done, setDone] = useState(JSON
     .parse(window.localStorage.getItem('doneRecipes')));
 
+  const [radio, setRadio] = useState([]);
+  const [search, setSearch] = useState('');
+  const [recipe, setRecipe] = useState([]);
+
   const values = {
     favorites,
     setFavorites,
     done,
     setDone,
     copy,
+    radio,
+    setRadio,
+    search,
+    setSearch,
+    recipe,
+    setRecipe,
   };
 
   return (
