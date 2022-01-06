@@ -15,33 +15,33 @@
   max-height: 80vh;
 }
 
-.container-login{
+.container-login {
   height: 100vh;
-  width: 100%;  
+  width: 100%;
 }
 
-.content-login { 
+.content-login {
   background: #212121;
-  opacity: 0.8; 
-  border-radius: 2rem 0;
+  opacity: 0.8;
+  border-radius: 1rem 0;
   padding: 2rem;
 }
 
 .form-login {
+  margin: auto;
   max-width: 100%;
   padding: 1rem;
   width: 20rem;
-  margin: auto;
 }
 
 .menuRadioButtons {
   margin: 2rem 0 5rem;
 }
 
-.footerButtons{
+.footerButtons {
   display: flex;
-  width: 100%;
   justify-content: space-around;
+  width: 100%;
   align-items: center;
   background: #212121;
 }
