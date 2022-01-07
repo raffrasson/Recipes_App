@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import searchIcon from '../images/searchIcon.svg';
 import profileIcon from '../images/profileIcon.svg';
+import AppContext from '../context/AppContext';
 
 function Header() {
+  const { setSearch } = useContext(AppContext);
   const history = useHistory();
   const location = useLocation();
   const [visible, setVisible] = useState(false);
@@ -63,48 +65,57 @@ function Header() {
   });
 
   return (
-    <div>
-      <div>
-        <button
-          type="button"
-          onClick={ handleClick }
-        >
-          <img
-            data-testid="profile-top-btn"
-            src={ profileIcon }
-            alt="profile-icon"
-          />
-        </button>
-      </div>
-
-      <div>
-        <h1 data-testid="page-title">{ title }</h1>
-      </div>
-
-      { visibleBtn && (
-        <div>
+    <div className="navbar-light bg-danger text-white container-fluid">
+      <div className="row">
+        <div className="col-md-4">
           <button
+            className="btn m-2 rounded-pill"
             type="button"
-            onClick={ togleSearch }
+            onClick={ handleClick }
           >
             <img
-              data-testid="search-top-btn"
-              src={ searchIcon }
-              alt="search-icon"
+              data-testid="profile-top-btn"
+              src={ profileIcon }
+              alt="profile-icon"
+
             />
           </button>
         </div>
 
-      )}
-
-      { visible && (
-        <div>
-          <input
-            type="text"
-            data-testid="search-input"
-          />
+        <div className="col-md-4 text-center">
+          <h1 data-testid="page-title">{ title }</h1>
         </div>
-      )}
+
+        { visibleBtn && (
+          <div className="col-md-4">
+            <div className="row justify-content-end">
+              <button
+                type="button"
+                className="btn m-2 rounded-pill"
+                onClick={ togleSearch }
+              >
+                <img
+                  data-testid="search-top-btn"
+                  src={ searchIcon }
+                  alt="search-icon"
+                />
+              </button>
+            </div>
+          </div>
+        )}
+
+        { visible && (
+          <div className="col-12 text-center">
+            <input
+              type="text"
+              data-testid="search-input"
+              onChange={ ({ target }) => {
+                setSearch(target.value);
+              } }
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

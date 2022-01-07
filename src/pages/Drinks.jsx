@@ -1,21 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
+import RadioButtons from '../components/RadioButtons';
+import CardDrinks from '../components/CardDrinks';
 
-export default function Drinks({ history }) {
+export default function Drinks() {
   return (
     <>
       <div>
         <Header />
       </div>
       <div>
-        <Footer history={ history } />
+        <RadioButtons />
+      </div>
+      <div>
+        <CardDrinks />
+      </div>
+      <div>
+        <Footer />
       </div>
     </>
   );
 }
-
-Drinks.propTypes = {
-  history: PropTypes.objectOf(PropTypes.object).isRequired,
-};

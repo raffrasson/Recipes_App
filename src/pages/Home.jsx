@@ -1,23 +1,26 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
+import Header from '../components/Header';
+import CardFood from '../components/CardFood';
+import RadioButtons from '../components/RadioButtons';
 
-function Home({ history }) {
+function Home() {
   return (
     <>
       <div>
         <Header />
       </div>
       <div>
-        <Footer history={ history } />
+        <RadioButtons />
+      </div>
+      <div>
+        <CardFood />
+      </div>
+      <div>
+        <Footer />
       </div>
     </>
   );
 }
-
-Home.propTypes = {
-  history: PropTypes.objectOf(PropTypes.object).isRequired,
-};
 
 export default Home;
