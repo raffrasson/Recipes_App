@@ -14,7 +14,7 @@ export default function CardFood() {
         history.push(`/comidas/${card.idMeal}`);
       }
 
-      if (index > 11) return;
+      if (index > 11) return null;
 
       return (
         <div key={ card.idMeal } className="col-md-3">

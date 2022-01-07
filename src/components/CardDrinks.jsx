@@ -6,6 +6,7 @@ import AppContext from '../context/AppContext';
 export default function CardDrinks() {
   const { drink } = useContext(AppContext);
   const history = useHistory();
+  const []
 
   const renderCard = () => (
     drink.drinks.map((card, index) => {
@@ -13,7 +14,7 @@ export default function CardDrinks() {
         history.push(`/bebidas/${card.idDrink}`);
       }
 
-      if (index > 11) return;
+      if (index > 11) return null;
 
       return (
         <div className="col-md-3" key={ card.idDrink }>
