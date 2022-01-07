@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
 import RadioButtons from '../components/RadioButtons';
-import Card from '../components/Card';
+import CardFood from '../components/CardFood';
 
 function Home({ history }) {
   return (
@@ -14,8 +14,12 @@ function Home({ history }) {
       <div>
         <RadioButtons />
       </div>
-      <div>
-        <Card />
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-4">
+            <CardFood />
+          </div>
+        </div>
       </div>
       <div>
         <Footer history={ history } />

@@ -1,31 +1,28 @@
 import React, { useContext } from 'react';
+import { Card } from 'react-bootstrap';
 import AppContext from '../context/AppContext';
 
-export default function Card() {
+export default function CardFood() {
   const { recipe } = useContext(AppContext);
 
   const renderCard = () => (
     recipe.meals.map((card, index) => (
-      <div
-        data-testid={ `${index}-recipe-card` }
+      <Card
         key={ card.idMeal }
-        className="card  w-75 mb-5 mx-auto"
+        data-testid={ `${index}-recipe-card` }
+        style={ { width: '18rem' } }
       >
-        <img
+        <Card.Img
           data-testid={ `${index}-card-img` }
-          className="card-img-top"
+          variant="top"
           src={ card.strMealThumb }
-          alt={ card.strMeal }
         />
-        <div className="card-body">
-          <h5
-            data-testid={ `${index}-card-name` }
-            className="card-title"
-          >
+        <Card.Body>
+          <Card.Text>
             { card.strMeal }
-          </h5>
-        </div>
-      </div>
+          </Card.Text>
+        </Card.Body>
+      </Card>
     ))
   );
 

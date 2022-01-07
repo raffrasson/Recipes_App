@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
 import RadioButtons from '../components/RadioButtons';
-import Card from '../components/Card';
+import CardDrinks from '../components/CardDrinks';
 
 export default function Drinks({ history }) {
   return (
@@ -15,7 +15,7 @@ export default function Drinks({ history }) {
         <RadioButtons />
       </div>
       <div>
-        <Card />
+        <CardDrinks />
       </div>
       <div>
         <Footer history={ history } />
