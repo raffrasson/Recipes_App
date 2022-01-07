@@ -15,6 +15,37 @@
   max-height: 80vh;
 }
 
+.container-login {
+  height: 100vh;
+  width: 100%;
+}
+
+.content-login {
+  background: #212121;
+  border-radius: 20px 0;
+  opacity: 0.8;
+  padding: 2rem;
+}
+
+.form-login {
+  margin: auto;
+  max-width: 100%;
+  padding: 1rem;
+  width: 20rem;
+}
+
+.menuRadioButtons {
+  margin: 2rem 0 5rem;
+}
+
+.footerButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #212121;
+  width: 100%;
+}
+
 /*
 #iceLeft {
   animation: clink .8s infinite ease;
@@ -33,7 +64,7 @@
   animation: shake 1.5s infinite ease;
   color: aliceblue;
   font-family: Montserrat , sans-serif;
-  font-size: 3em;
+  font-size: 3rem;
   font-weight: 900;
 }
 

@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import searchIcon from '../images/searchIcon.svg';
 import profileIcon from '../images/profileIcon.svg';
+import AppContext from '../context/AppContext';
 
 function Header() {
+  const { setSearch } = useContext(AppContext);
   const history = useHistory();
   const location = useLocation();
   const [visible, setVisible] = useState(false);
@@ -63,9 +65,10 @@ function Header() {
   });
 
   return (
-    <div>
+    <div className="navbar navbar-light bg-danger text-white">
       <div>
         <button
+          className="btn m-2 rounded-pill"
           type="button"
           onClick={ handleClick }
         >
@@ -73,11 +76,12 @@ function Header() {
             data-testid="profile-top-btn"
             src={ profileIcon }
             alt="profile-icon"
+
           />
         </button>
       </div>
 
-      <div>
+      <div className="d-flex align-items-center justify-content-center">
         <h1 data-testid="page-title">{ title }</h1>
       </div>
 
@@ -85,6 +89,7 @@ function Header() {
         <div>
           <button
             type="button"
+            className="btn m-2 rounded-pill"
             onClick={ togleSearch }
           >
             <img
@@ -102,6 +107,10 @@ function Header() {
           <input
             type="text"
             data-testid="search-input"
+            className="container d-flex mx-auto"
+            onChange={ ({ target }) => {
+              setSearch(target.value);
+            } }
           />
         </div>
       )}
