@@ -14,12 +14,8 @@ function Home({ history }) {
       <div>
         <RadioButtons />
       </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-4">
-            <CardFood />
-          </div>
-        </div>
+      <div>
+        <CardFood />
       </div>
       <div>
         <Footer history={ history } />

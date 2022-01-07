@@ -11,6 +11,7 @@ export default function CardDrinks() {
         key={ card.idDrink }
         data-testid={ `${index}-drink-card` }
         style={ { width: '18rem' } }
+        className="card m-2 bg-light"
       >
         <Card.Img
           data-testid={ `${index}-card-img` }
@@ -30,7 +31,7 @@ export default function CardDrinks() {
   return (
     <div>
       {drink.drinks && (
-        <div>
+        <div className="container-fluid">
           {
             renderCard()
           }

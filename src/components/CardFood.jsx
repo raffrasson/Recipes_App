@@ -11,6 +11,7 @@ export default function CardFood() {
         key={ card.idMeal }
         data-testid={ `${index}-recipe-card` }
         style={ { width: '18rem' } }
+        className="card m-2 bg-light"
       >
         <Card.Img
           data-testid={ `${index}-card-img` }
@@ -29,7 +30,7 @@ export default function CardFood() {
   return (
     <div>
       {recipe.meals && (
-        <div>
+        <div className="container-fluid">
           {
             renderCard()
           }
