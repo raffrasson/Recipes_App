@@ -65,55 +65,57 @@ function Header() {
   });
 
   return (
-    <div className="navbar navbar-light bg-danger text-white">
-      <div>
-        <button
-          className="btn m-2 rounded-pill"
-          type="button"
-          onClick={ handleClick }
-        >
-          <img
-            data-testid="profile-top-btn"
-            src={ profileIcon }
-            alt="profile-icon"
-
-          />
-        </button>
-      </div>
-
-      <div className="d-flex align-items-center justify-content-center">
-        <h1 data-testid="page-title">{ title }</h1>
-      </div>
-
-      { visibleBtn && (
-        <div>
+    <div className="navbar-light bg-danger text-white container-fluid">
+      <div className="row">
+        <div className="col-md-4">
           <button
-            type="button"
             className="btn m-2 rounded-pill"
-            onClick={ togleSearch }
+            type="button"
+            onClick={ handleClick }
           >
             <img
-              data-testid="search-top-btn"
-              src={ searchIcon }
-              alt="search-icon"
+              data-testid="profile-top-btn"
+              src={ profileIcon }
+              alt="profile-icon"
+
             />
           </button>
         </div>
 
-      )}
-
-      { visible && (
-        <div>
-          <input
-            type="text"
-            data-testid="search-input"
-            className="container d-flex mx-auto"
-            onChange={ ({ target }) => {
-              setSearch(target.value);
-            } }
-          />
+        <div className="col-md-4 text-center">
+          <h1 data-testid="page-title">{ title }</h1>
         </div>
-      )}
+
+        { visibleBtn && (
+          <div className="col-md-4">
+            <div className="row justify-content-end">
+              <button
+                type="button"
+                className="btn m-2 rounded-pill"
+                onClick={ togleSearch }
+              >
+                <img
+                  data-testid="search-top-btn"
+                  src={ searchIcon }
+                  alt="search-icon"
+                />
+              </button>
+            </div>
+          </div>
+        )}
+
+        { visible && (
+          <div className="col-12 text-center">
+            <input
+              type="text"
+              data-testid="search-input"
+              onChange={ ({ target }) => {
+                setSearch(target.value);
+              } }
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

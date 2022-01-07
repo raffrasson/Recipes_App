@@ -1,14 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
 
-function Search({ history }) {
-  const historyRouter = useHistory();
+function Search() {
+  const history = useHistory();
 
-  const moveToExploreFood = () => historyRouter.push('/explorar/comidas');
-  const moveToExploreDrinks = () => historyRouter.push('/explorar/bebidas');
+  const moveToExploreFood = () => history.push('/explorar/comidas');
+  const moveToExploreDrinks = () => history.push('/explorar/bebidas');
+
   return (
     <main>
       <div>
@@ -31,14 +31,10 @@ function Search({ history }) {
 
       </button>
       <div>
-        <Footer history={ history } />
+        <Footer />
       </div>
     </main>
   );
 }
-
-Search.propTypes = {
-  history: PropTypes.objectOf(PropTypes.object).isRequired,
-};
 
 export default Search;
