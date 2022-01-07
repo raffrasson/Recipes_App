@@ -40,10 +40,10 @@
 
 .footerButtons {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  width: 100%;  
-  background: #212121; 
+  justify-content: space-around;
+  background: #212121;
+  width: 100%;
 }
 
 /*
