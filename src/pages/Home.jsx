@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
+import Header from '../components/Header';
+import CardFood from '../components/CardFood';
 import RadioButtons from '../components/RadioButtons';
-import Card from '../components/Card';
 
 function Home({ history }) {
   return (
@@ -15,7 +15,7 @@ function Home({ history }) {
         <RadioButtons />
       </div>
       <div>
-        <Card />
+        <CardFood />
       </div>
       <div>
         <Footer history={ history } />

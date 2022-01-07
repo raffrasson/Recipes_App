@@ -15,37 +15,35 @@
   max-height: 80vh;
 }
 
-/*Estilização das classes*/
-
-.container-login{
+.container-login {
   height: 100vh;
-  width: 100%;  
+  width: 100%;
 }
 
-.content-login { 
-  opacity: 0.9; 
-  background-color: #212121;
-  border-radius: 2rem 0 2rem 0;
+.content-login {
+  background: #212121;
+  border-radius: 20px 0;
+  opacity: 0.8;
   padding: 2rem;
 }
 
 .form-login {
-max-width: 100%;
-width: 20rem;
-padding: 1rem;
-margin: auto;
+  margin: auto;
+  max-width: 100%;
+  padding: 1rem;
+  width: 20rem;
 }
 
 .menuRadioButtons {
-margin: 2rem 0 5rem 0;
+  margin: 2rem 0 5rem;
 }
 
-.footerButtons{
-width: 100%;  
-display: flex;
-justify-content: space-around;
-align-items: center;
-background-color: #212121;
+.footerButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #212121;
+  width: 100%;
 }
 
 /*
