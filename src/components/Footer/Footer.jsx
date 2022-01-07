@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import DRINK_ICON from '../../images/drinkIcon.svg';
 import EXPLORE_ICON from '../../images/exploreIcon.svg';
 import MEAL_ICON from '../../images/mealIcon.svg';
 import './Footer.css';
 
-export default function Footer({ history }) {
+export default function Footer() {
+  const history = useHistory();
   const redirectToDrinksPage = () => {
     history.push('/bebidas');
   };
