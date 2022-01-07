@@ -1,20 +1,21 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 
 export default function CardFood() {
   const { recipe } = useContext(AppContext);
   const history = useHistory();
-
+  const [cout, setCout] = useState(0);
   const renderCard = () => (
     recipe.meals.map((card, index) => {
       console.log(recipe.meals.length);
+      const eleven = 11;
 
       if (recipe.meals.length === 1) {
         history.push(`/comidas/${card.idMeal}`);
       }
 
-      if (index > 11) return null;
+      if (index > eleven) return null;
 
       return (
         <div key={ card.idMeal } className="col-md-3">
@@ -43,8 +44,9 @@ export default function CardFood() {
   );
 
   const handleAlert = () => {
-    if (recipe.meals === null) {
+    if ((recipe.meals === null) && (cout === 0)) {
       global.alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+      setCout(1);
     }
   };
 
