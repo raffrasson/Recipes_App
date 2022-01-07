@@ -39,10 +39,10 @@
 }
 
 .footerButtons {
-  display: flex;
   align-items: center;
-  justify-content: space-around;
+  display: flex;
   background: #212121;
+  justify-content: space-around;
   width: 100%;
 }
 
