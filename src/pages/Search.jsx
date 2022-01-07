@@ -7,8 +7,8 @@ import Footer from '../components/Footer/Footer';
 function Search({ history }) {
   const historyRouter = useHistory();
 
-  const moveToExploreFood = () => historyRouter.push('/explorar/comida');
-
+  const moveToExploreFood = () => historyRouter.push('/explorar/comidas');
+  const moveToExploreDrinks = () => historyRouter.push('/explorar/bebidas');
   return (
     <main>
       <div>
@@ -20,6 +20,14 @@ function Search({ history }) {
         onClick={ moveToExploreFood }
       >
         Explorar Comidas
+
+      </button>
+      <button
+        type="button"
+        data-testid="explore-drinks"
+        onClick={ moveToExploreDrinks }
+      >
+        Explorar Bebidas
 
       </button>
       <div>
