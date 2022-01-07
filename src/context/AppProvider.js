@@ -12,6 +12,7 @@ export default function AppProvider({ children }) {
   const [radio, setRadio] = useState([]);
   const [search, setSearch] = useState('');
   const [recipe, setRecipe] = useState([]);
+  const [drink, setDrink] = useState([]);
 
   const values = {
     favorites,
@@ -25,6 +26,8 @@ export default function AppProvider({ children }) {
     setSearch,
     recipe,
     setRecipe,
+    drink,
+    setDrink,
   };
 
   return (

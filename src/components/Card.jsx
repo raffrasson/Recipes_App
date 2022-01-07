@@ -9,7 +9,7 @@ export default function Card() {
       <div
         data-testid={ `${index}-recipe-card` }
         key={ card.idMeal }
-        className="card w-50"
+        className="card  w-75 mb-5 mx-auto"
       >
         <img
           data-testid={ `${index}-card-img` }

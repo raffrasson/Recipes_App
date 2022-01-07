@@ -107,6 +107,7 @@ function Header() {
           <input
             type="text"
             data-testid="search-input"
+            className="container d-flex mx-auto"
             onChange={ ({ target }) => {
               setSearch(target.value);
             } }

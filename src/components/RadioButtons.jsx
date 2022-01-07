@@ -25,7 +25,7 @@ export default function RadioButtons() {
 
   return (
 
-    <div className="container w-50 d-flex  align-items-center justify-content-center">
+    <div className="container d-flex  align-items-center justify-content-center">
       <div className="menuRadioButtons">
         <label htmlFor="ingredient" className="ml-2 mr-1">
           Ingrediente
