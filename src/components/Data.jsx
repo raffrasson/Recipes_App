@@ -1,5 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import recipeFinished from '../images/recipefinished.png';
+import recipeFavorite from '../images/recipefavorite.png';
+import avatar from '../images/profileIcon.svg';
 
 export default function Data() {
   const { email } = JSON.parse(localStorage.getItem('user'));
@@ -20,46 +23,55 @@ export default function Data() {
 
   return (
     <div
-      className="card m-5 p-5 d-flex align-items-center justify-content-center"
+      className="container text-center mb-5 p-2 mx-auto row"
     >
-      <div>
-        <h3 data-testid="profile-email">{email}</h3>
-      </div>
-      <div>
-        <div className="bg-light p-5 rounded mt-3" style={ { width: '35rem' } }>
-          <h2>Receitas Prontas</h2>
-          <p>As melhores receitas</p>
+      <div className="text-center">
+        <div className="m-2">
+          <img src={ avatar } alt="user" className="mb-3" />
+          <h4 data-testid="profile-email">{email}</h4>
+        </div>
+        <div className="row d-flex align-items-center justify-content-center ">
+          <div
+            className="bg-light p-2 rounded mt-3 col-md-5"
+            style={ { width: '35rem' } }
+          >
+            <img src={ recipeFinished } alt="Receitas feitas" className="w-100" />
+            <button
+              type="button"
+              className="container btn btn-success"
+              data-testid="profile-done-btn"
+              onClick={ finishedRecipes }
+            >
+              Receitas Feitas
+            </button>
+          </div>
+
+          <div
+            className="bg-light p-2 rounded mt-3 col-md-5"
+            style={ { width: '35rem' } }
+          >
+            <img src={ recipeFavorite } alt="Receitas favoritas" className="w-100" />
+            <button
+              type="button"
+              className="container btn btn-success"
+              data-testid="profile-favorite-btn"
+              onClick={ favoritesRecipes }
+            >
+              Receitas Favoritas
+            </button>
+          </div>
+        </div>
+        <div className="container">
           <button
             type="button"
-            className="container btn btn-success"
-            data-testid="profile-done-btn"
-            onClick={ finishedRecipes }
+            data-testid="profile-logout-btn"
+            className="btn btn-danger m-2 w-50"
+            onClick={ buttonLogout }
           >
-            Receitas Feitas
+            Sair
           </button>
         </div>
       </div>
-
-      <div className="bg-light p-5 rounded mt-3" style={ { width: '35rem' } }>
-        <h2>Minhas receitas</h2>
-        <p>Suas receitas favoritas</p>
-        <button
-          type="button"
-          className="container btn btn-success"
-          data-testid="profile-favorite-btn"
-          onClick={ favoritesRecipes }
-        >
-          Receitas Favoritas
-        </button>
-      </div>
-      <button
-        type="button"
-        data-testid="profile-logout-btn"
-        className="btn btn-danger container w-50 m-5"
-        onClick={ buttonLogout }
-      >
-        Sair
-      </button>
     </div>
   );
 }
