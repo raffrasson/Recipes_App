@@ -18,7 +18,7 @@ export default function CardFood() {
       if (index > eleven) return null;
 
       return (
-        <div key={ card.idMeal } className="col-md-3">
+        <div key={ card.idMeal } className="col-md-3 mb-2">
           <div
             data-testid={ `${index}-recipe-card` }
             className="card"

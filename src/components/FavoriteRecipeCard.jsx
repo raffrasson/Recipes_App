@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import AppContext from '../context/AppContext';
 
-function FinishedRecipeCard(props) {
+function FavoriteRecipeCard(props) {
   const { type, index, id, alcoholicOrNot, img, foodName, category,
-    area, date, tagName, tagName2 } = props;
-  const { copy } = useContext(AppContext);
+    area, date } = props;
+  const { favorites, setFavorites, copy } = useContext(AppContext);
+
   return (
     <div className="col-md-3 mb-2">
       <div className="card">
@@ -40,9 +41,8 @@ function FinishedRecipeCard(props) {
           {category}
           {alcoholicOrNot}
         </p>
+        <p data-testid={ `${index}-horizontal-area` }>{area}</p>
         <p data-testid={ `${index}-horizontal-done-date` }>{date}</p>
-        <p data-testid={ `${index}-${tagName}-horizontal-tag` }>{tagName}</p>
-        <p data-testid={ `${index}-${tagName2}-horizontal-tag` }>{tagName2}</p>
         <button
           className="btn btn-danger w-50"
           type="button"
@@ -54,13 +54,30 @@ function FinishedRecipeCard(props) {
             copy((`http://localhost:3000/${type}s/${id}`)); // ref: https://stackoverflow.com/questions/49618618/copy-current-url-to-clipboard
             document.getElementById('share').innerHTML = 'Link copiado!';
           } }
+
+        >
+          {' '}
+        </button>
+        <button
+          className="btn btn-danger w-50"
+          type="button"
+          data-testid={ `${index}-horizontal-favorite-btn` }
+          src="src/images/blackHeartIcon.svg"
+          alt="favoritar"
+          onClick={ () => {
+            setFavorites([]);
+            window.localStorage.removeItem('favoriteRecipes');
+            const newArray = favorites.filter((elem) => elem !== favorites[index]);
+            window.localStorage.setItem('favoriteRecipes', JSON.stringify(newArray));
+            setFavorites(newArray);
+          } }
         />
       </div>
     </div>
   );
 }
 
-FinishedRecipeCard.propTypes = {
+FavoriteRecipeCard.propTypes = {
   index: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
@@ -70,8 +87,7 @@ FinishedRecipeCard.propTypes = {
   category: PropTypes.string.isRequired,
   area: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  tagName: PropTypes.string.isRequired,
-  tagName2: PropTypes.string.isRequired,
+
 };
 
-export default FinishedRecipeCard;
+export default FavoriteRecipeCard;
