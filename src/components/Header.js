@@ -67,7 +67,7 @@ function Header() {
   return (
     <div className="navbar-light bg-danger text-white container-fluid">
       <div className="row">
-        <div className="col-md-4">
+        <div className="col col-md-4">
           <button
             className="btn m-2 rounded-pill"
             type="button"
@@ -82,12 +82,12 @@ function Header() {
           </button>
         </div>
 
-        <div className="col-md-4 text-center">
+        <div className="col col-md-4 text-center">
           <h1 data-testid="page-title">{ title }</h1>
         </div>
 
         { visibleBtn && (
-          <div className="col-md-4">
+          <div className="col col-md-4">
             <div className="row justify-content-end">
               <button
                 type="button"
@@ -109,6 +109,8 @@ function Header() {
             <input
               type="text"
               data-testid="search-input"
+              placeholder="Pesquisar..."
+              className="form-control container mb-1 w-75"
               onChange={ ({ target }) => {
                 setSearch(target.value);
               } }
