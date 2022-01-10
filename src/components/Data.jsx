@@ -2,7 +2,6 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import recipeFinished from '../images/recipefinished.png';
 import recipeFavorite from '../images/recipefavorite.png';
-import avatar from '../images/profileIcon.svg';
 
 export default function Data() {
   const { email } = JSON.parse(localStorage.getItem('user'));
@@ -27,7 +26,6 @@ export default function Data() {
     >
       <div className="text-center">
         <div className="m-2">
-          <img src={ avatar } alt="user" className="mb-3" />
           <h4 data-testid="profile-email">{email}</h4>
         </div>
         <div className="row d-flex align-items-center justify-content-center ">
