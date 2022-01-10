@@ -45,3 +45,27 @@ export async function fetchDrinksFirstName(primeiraletra) {
   const drinks = await response.json();
   return drinks;
 }
+
+export async function fetchRandomFood() {
+  const response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
+  const randomFood = await response.json();
+  return randomFood;
+}
+
+export async function fetchRandomDrinks() {
+  const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php');
+  const randomDrinks = await response.json();
+  return randomDrinks;
+}
+
+export async function fetchIngredientsList() {
+  const response = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?i=list');
+  const ingredients = await response.json();
+  return ingredients;
+}
+
+export async function fetchIngredientsDrinksList() {
+  const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list');
+  const ingredients = await response.json();
+  return ingredients;
+}

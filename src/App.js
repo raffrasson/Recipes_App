@@ -22,8 +22,8 @@ function App() {
       <AppProvider>
         <Switch>
           <Route exact path="/" component={ Login } />
-          <Route exact path="/comidas" component={ Home } />
-          <Route exact path="/bebidas" component={ Drinks } />
+          <Route exact path="/comidas/:ingredient?" component={ Home } />
+          <Route exact path="/bebidas/:ingredient?" component={ Drinks } />
           <Route exact path="/perfil" component={ Profile } />
           <Route exact path="/explorar" component={ Search } />
           <Route exact path="/explorar/comidas" component={ SearchFoods } />

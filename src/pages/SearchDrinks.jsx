@@ -1,13 +1,20 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
+import { fetchRandomDrinks } from '../service/fetchAPI';
 
 function SearchDrinks({ history }) {
   const historyRouter = useHistory();
+  const [randomId, setRandomId] = useState();
   const moveToIngredientPage = () => historyRouter.push('/explorar/bebidas/ingredientes');
-  const moveToSurprisePage = () => historyRouter.push('/bebidas/178319');
+  const moveToSurprisePage = () => historyRouter.push(`/bebidas/${randomId}`);
+  const randomDrink = async () => {
+    const data = await fetchRandomDrinks();
+    setRandomId(data.drinks[0].idDrink);
+  };
+  randomDrink();
   return (
     <>
       <div>
