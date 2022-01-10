@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import recipeFinished from '../images/recipefinished.png';
 import recipeFavorite from '../images/recipefavorite.png';
 
 export default function Data() {
-  const { email } = JSON.parse(localStorage.getItem('user'));
+  const [emailUser, setEmailUser] = useState('');
+
+  useEffect(() => {
+    if (!localStorage.getItem('user')) {
+      const userEmail = { email: '' };
+      localStorage.setItem('user', JSON.stringify(userEmail));
+    } else {
+      const { email } = JSON.parse(localStorage.getItem('user'));
+      setEmailUser(email);
+    }
+  }, []);
+
   const history = useHistory();
 
   const finishedRecipes = () => (
@@ -26,7 +37,7 @@ export default function Data() {
     >
       <div className="text-center">
         <div className="m-2">
-          <h4 data-testid="profile-email">{email}</h4>
+          <h4 data-testid="profile-email">{emailUser}</h4>
         </div>
         <div className="row d-flex align-items-center justify-content-center ">
           <div
