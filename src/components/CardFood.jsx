@@ -18,10 +18,11 @@ export default function CardFood() {
       if (index > eleven) return null;
 
       return (
-        <div key={ card.idMeal } className="col-md-3 mb-2">
+        <div key={ card.idMeal } className="col-md-3">
           <div
             data-testid={ `${index}-recipe-card` }
-            className="card"
+            style={ { width: '18rem' } }
+            className="card m-2 mx-auto"
           >
             <div className="card-body text-center">
               <h5
@@ -57,7 +58,7 @@ export default function CardFood() {
   return (
     <div>
       {recipe.meals && (
-        <div className="row">
+        <div className="row ">
           {
             renderCard()
           }

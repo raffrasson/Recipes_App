@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Card } from 'react-bootstrap';
 import AppContext from '../context/AppContext';
 
-export default function CardDrinks() {
+export default function CardFood() {
   const { drink } = useContext(AppContext);
   const history = useHistory();
+  const [cout, setCout] = useState(0);
 
   const renderCard = () => (
     drink.drinks.map((card, index) => {
@@ -18,31 +18,32 @@ export default function CardDrinks() {
       if (index > eleven) return null;
 
       return (
-        <div className="col-md-3" key={ card.idDrink }>
-          <Card
+        <div key={ card.idDrink } className="col-md-3">
+          <div
             data-testid={ `${index}-recipe-card` }
             style={ { width: '18rem' } }
-            className="card m-2 bg-light"
+            className="card m-2 mx-auto"
           >
-            <Card.Img
+            <div className="card-body text-center">
+              <h5 data-testid={ `${index}-card-name` } className="card-title">
+                {card.strDrink}
+              </h5>
+            </div>
+            <img
               data-testid={ `${index}-card-img` }
-              variant="top"
+              className="card-img-top"
               src={ card.strDrinkThumb }
+              alt={ card.strDrink }
             />
-            <Card.Body className="text-center">
-              <Card.Text data-testid={ `${index}-card-name` }>
-                { card.strDrink }
-              </Card.Text>
-            </Card.Body>
-          </Card>
+          </div>
         </div>
       );
-    })
-  );
+    }));
 
   const handleAlert = () => {
-    if (drink.drinks === null) {
+    if (drink.drinks === null && cout === 0) {
       global.alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+      setCout(1);
     }
   };
 
@@ -50,15 +51,5 @@ export default function CardDrinks() {
     handleAlert();
   });
 
-  return (
-    <div>
-      {drink.drinks && (
-        <div className="row">
-          {
-            renderCard()
-          }
-        </div>
-      )}
-    </div>
-  );
+  return <div>{drink.drinks && <div className="row">{renderCard()}</div>}</div>;
 }
