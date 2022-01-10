@@ -16,47 +16,52 @@ function FinishedRecipes() {
 
   if (done !== null) {
     return (
-      <div>
+      <>
         <Header />
-        <button
-          type="button"
-          data-testid="filter-by-all-btn"
-          onClick={ showAll }
-        >
-          All
-        </button>
-        <button
-          type="button"
-          data-testid="filter-by-food-btn"
-          onClick={ () => hideRecipes('comida') }
-        >
-          Food
-        </button>
-        <button
-          type="button"
-          data-testid="filter-by-drink-btn"
-          onClick={ () => hideRecipes('bebida') }
-        >
-          Drink
-        </button>
+        <div className="d-flex justify-content-between col-md-3 mt-2 mb-2">
+          <button
+            className="btn btn-danger w-25"
+            type="button"
+            data-testid="filter-by-all-btn"
+            onClick={ showAll }
+          >
+            All
+          </button>
+          <button
+            className="btn btn-danger w-25"
+            type="button"
+            data-testid="filter-by-food-btn"
+            onClick={ () => hideRecipes('comida') }
+          >
+            Food
+          </button>
+          <button
+            className="btn btn-danger w-25"
+            type="button"
+            data-testid="filter-by-drink-btn"
+            onClick={ () => hideRecipes('bebida') }
+          >
+            Drink
+          </button>
 
-        {(done.map((obj, i) => (
-          <FinishedRecipeCard
-            index={ i }
-            key={ obj.id }
-            id={ obj.id }
-            img={ obj.image }
-            alcoholicOrNot={ obj.alcoholicOrNot }
-            foodName={ obj.name }
-            category={ obj.category }
-            area={ obj.area }
-            date={ obj.doneDate }
-            tagName={ obj.tags[0] }
-            tagName2={ obj.tags[1] }
-            type={ obj.type }
-          />
-        )))}
-      </div>
+          {(done.map((obj, i) => (
+            <FinishedRecipeCard
+              index={ i }
+              key={ obj.id }
+              id={ obj.id }
+              img={ obj.image }
+              alcoholicOrNot={ obj.alcoholicOrNot }
+              foodName={ obj.name }
+              category={ obj.category }
+              area={ obj.area }
+              date={ obj.doneDate }
+              tagName={ obj.tags[0] }
+              tagName2={ obj.tags[1] }
+              type={ obj.type }
+            />
+          )))}
+        </div>
+      </>
     );
   }
   return (
