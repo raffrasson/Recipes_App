@@ -3,9 +3,17 @@ import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
 import { mealDetailsById, drinkDetailsById } from '../service/fetchAPI';
 import AppContext from '../context/AppContext';
+import shareIcon from '../images/shareIcon.svg';
+import likeIcon from '../images/blackHeartIcon.svg';
 
 export default function RecipeInProgress() {
-  const { recipeType, setRecipeType, recipeData, setRecipeData } = useContext(AppContext);
+  const { recipeType,
+    setRecipeType,
+    recipeData,
+    setRecipeData,
+    favorites,
+    setFavorites,
+    copy } = useContext(AppContext);
 
   const id = window.location.href.split('/')[4]; // recupera o id com base no endereço
 
@@ -27,6 +35,7 @@ export default function RecipeInProgress() {
   const { strMeal,
     strDrink,
     strCategory,
+    strAlcoholic,
     strInstructions,
     strMealThumb,
     strDrinkThumb,
@@ -45,7 +54,42 @@ export default function RecipeInProgress() {
           width="300px"
           data-testid="recipe-photo"
         />
+
         <h3 data-testid="recipe-title">{recipeType === 'meal' ? strMeal : strDrink }</h3>
+
+        <button
+          className="btn btn-danger w-50"
+          type="button"
+          id="share"
+          data-testid="share-btn"
+          src="src/images/shareIcon.svg"
+          alt="compartilhar"
+          onClick={ () => {
+            copy((`http://localhost:3000/${recipeType}s/${id}`)); // ref: https://stackoverflow.com/questions/49618618/copy-current-url-to-clipboard
+            document.getElementById('share').innerHTML = 'Link copiado!';
+          } }
+        >
+          <img src={ shareIcon } alt="compartilhar" />
+        </button>
+
+        <button
+          className="btn btn-danger w-50"
+          type="button"
+          data-testid="favorite-btn"
+          src="src/images/blackHeartIcon.svg"
+          alt="favoritar"
+        >
+          <img src={ likeIcon } alt="compartilhar" />
+        </button>
+
+        <h4 data-testid="recipe-category">
+          {recipeType === 'meal' ? strCategory : strAlcoholic }
+        </h4>
+
+        <p data-testid="instructions">
+          {strInstructions}
+        </p>
+
       </div>
       <div>
         <Footer />

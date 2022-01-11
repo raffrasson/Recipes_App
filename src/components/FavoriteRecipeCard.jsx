@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import AppContext from '../context/AppContext';
+import shareIcon from '../images/shareIcon.svg';
+import likeIcon from '../images/blackHeartIcon.svg';
 
 function FavoriteRecipeCard(props) {
   const { type, index, id, alcoholicOrNot, img, foodName, category,
@@ -41,8 +43,11 @@ function FavoriteRecipeCard(props) {
           {category}
           {alcoholicOrNot}
         </p>
+
         <p data-testid={ `${index}-horizontal-area` }>{area}</p>
+
         <p data-testid={ `${index}-horizontal-done-date` }>{date}</p>
+
         <button
           className="btn btn-danger w-50"
           type="button"
@@ -55,7 +60,7 @@ function FavoriteRecipeCard(props) {
             document.getElementById('share').innerHTML = 'Link copiado!';
           } }
         >
-          <img src="src/images/shareIcon.svg" alt="compartilhar" />
+          <img src={ shareIcon } alt="compartilhar" />
         </button>
 
         <button
@@ -71,7 +76,9 @@ function FavoriteRecipeCard(props) {
             window.localStorage.setItem('favoriteRecipes', JSON.stringify(newArray));
             setFavorites(newArray);
           } }
-        />
+        >
+          <img src={ likeIcon } alt="compartilhar" />
+        </button>
       </div>
     </div>
   );
