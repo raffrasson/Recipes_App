@@ -15,6 +15,7 @@ import DrinksForIngredients from './pages/DrinksForIngredients';
 import FoodsForOrigin from './pages/FoodsForOrigin';
 import FavoritesRecipes from './pages/FavoritesRecipes';
 import FinishedRecipes from './pages/FinishedRecipes';
+import RecipeInProgress from './pages/RecipeInProgress';
 
 function App() {
   return (
@@ -40,6 +41,16 @@ function App() {
             exact
             path="/explorar/bebidas/ingredientes"
             component={ DrinksForIngredients }
+          />
+          <Route
+            exact
+            path="/comidas/:id/in-progress"
+            component={ RecipeInProgress }
+          />
+          <Route
+            exact
+            path="/bebidas/:id/in-progress"
+            component={ RecipeInProgress }
           />
         </Switch>
       </AppProvider>

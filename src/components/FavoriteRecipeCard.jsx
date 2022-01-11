@@ -54,10 +54,10 @@ function FavoriteRecipeCard(props) {
             copy((`http://localhost:3000/${type}s/${id}`)); // ref: https://stackoverflow.com/questions/49618618/copy-current-url-to-clipboard
             document.getElementById('share').innerHTML = 'Link copiado!';
           } }
-
         >
-          {' '}
+          <img src="src/images/shareIcon.svg" alt="compartilhar" />
         </button>
+
         <button
           className="btn btn-danger w-50"
           type="button"

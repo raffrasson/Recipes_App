@@ -69,3 +69,15 @@ export async function fetchIngredientsDrinksList() {
   const ingredients = await response.json();
   return ingredients;
 }
+
+export async function mealDetailsById(id) {
+  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
+  const details = await response.json();
+  return details;
+}
+
+export async function drinkDetailsById(id) {
+  const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
+  const details = await response.json();
+  return details;
+}
