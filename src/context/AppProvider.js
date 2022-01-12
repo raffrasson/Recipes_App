@@ -15,6 +15,7 @@ export default function AppProvider({ children }) {
   const [drink, setDrink] = useState([]);
   const [recipeType, setRecipeType] = useState([]);
   const [recipeData, setRecipeData] = useState([]);
+  const [boxes, setBoxes] = useState([]);
 
   const values = {
     favorites,
@@ -34,6 +35,8 @@ export default function AppProvider({ children }) {
     setRecipeType,
     recipeData,
     setRecipeData,
+    boxes,
+    setBoxes,
   };
 
   return (
