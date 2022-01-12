@@ -3,20 +3,15 @@ import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import { mealDetailsById, drinkDetailsById } from '../service/fetchAPI';
 import AppContext from '../context/AppContext';
-import shareIcon from '../images/shareIcon.svg';
-import blackHeart from '../images/blackHeartIcon.svg';
-import whiteHeart from '../images/whiteHeartIcon.svg';
+import Checkbox from '../components/Checkboxes';
+import InProgressButtons from '../components/InProgressButtons';
 
 export default function RecipeInProgress() {
   const { recipeType,
     setRecipeType,
     recipeData,
     setRecipeData,
-    favorites,
-    setFavorites,
-    boxes,
-    setBoxes,
-    copy } = useContext(AppContext);
+    boxes } = useContext(AppContext);
 
   const history = useHistory(); // para requisito de redirecionar
 
@@ -40,22 +35,12 @@ export default function RecipeInProgress() {
 
   const { strMeal,
     strDrink,
-    strArea,
     strCategory,
     strAlcoholic,
     strInstructions,
     strMealThumb,
     strDrinkThumb,
   } = recipeData;
-
-  const favoriteItem = [{
-    id,
-    type: recipeType,
-    area: strArea || '',
-    category: strCategory,
-    alcoholicOrNot: strAlcoholic || '',
-    name: strMeal || strDrink,
-    image: strMealThumb || strDrinkThumb }];
 
   const twenty = 20; // para fazer o array abaixo e associar os ingredientes (o máximo são 20) depois.
   const numbers = [...Array(twenty).keys()]; // método usando o .keys(), referência: https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n
@@ -77,128 +62,47 @@ export default function RecipeInProgress() {
     (ingredient, i) => `${ingredient}: ${measureList[i]}`,
   );
 
-  // retorna o html com o select:
-  const checklist = finalList.map((item, i) => {
-    if (item !== localStorage[item]) {
-      return (
-        <label
-          key={ i }
-          data-testid={ `${i}-ingredient-step` }
-          id={ `label ${item}` }
-          htmlFor={ `item ${i}` }
-        >
-          <input
-            type="checkbox"
-            name={ `item ${i}` }
-            id={ `item ${i}` }
-            value={ `item ${i}` }
-            onChange={ () => {
-              const label = document.getElementById(`label ${item}`);
-              const box = document.getElementById(`item ${i}`);
-              window.localStorage.setItem(item, item);
-              box.setAttribute('checked', 'true');
-              label.setAttribute('style', 'text-decoration: line-through');
-              setBoxes([...boxes, item]);
-            } }
-          />
-          <span id={ `item ${i}` }>{item}</span>
-        </label>
-      );
-    }
-    if (item === localStorage[item]) {
-      return (
-
-        <label
-          style={ { textDecoration: 'line-through' } }
-          key={ i }
-          data-testid={ `${i}-ingredient-step` }
-          id={ `label ${item}` }
-          htmlFor={ `item ${i}` }
-        >
-          <input
-            type="checkbox"
-            checked
-            name={ `item ${i}` }
-            id={ `item ${i}` }
-            value={ `item ${i}` }
-            onChange={ () => {
-              const label = document.getElementById(`label ${item}`);
-              const box = document.getElementById(`item ${i}`);
-              window.localStorage.removeItem(item);
-              label.removeAttribute('style');
-              box.removeAttribute('checked');
-            } }
-          />
-          <span id={ `item ${i}` }>{item}</span>
-        </label>);
-    } return <p key={ i }>erro</p>;
-  });
-
   return (
-    <>
+    <div style={ { width: '360px' } }>
       <div>
         <Header />
       </div>
-      <div className="col-md-3">
+      <div className="justify-content-around">
         <img
           src={ recipeType === 'comida' ? strMealThumb : strDrinkThumb }
           alt={ recipeType === 'comida' ? strMeal : strDrink }
-          width="300px"
+          className="img-fluid"
           data-testid="recipe-photo"
         />
 
-        <h3 data-testid="recipe-title">{recipeType === 'meal' ? strMeal : strDrink }</h3>
-
-        <button
-          className="btn btn-danger w-50"
-          type="button"
-          id="share"
-          data-testid="share-btn"
-          src="src/images/shareIcon.svg"
-          alt="compartilhar"
-          onClick={ () => {
-            copy((recipeType === 'comida' ? `http://localhost:3000/comidas/${id}` : `http://localhost:3000/bebidas/${id}`)); // ref: https://stackoverflow.com/questions/49618618/copy-current-url-to-clipboard
-            document.getElementById('share').innerHTML = 'Link copiado!';
-          } }
+        <h2
+          data-testid="recipe-title"
+          className="mt-2 ml-2"
         >
-          <img src={ shareIcon } alt="compartilhar" />
-        </button>
+          {recipeType === 'comida' ? strMeal : strDrink }
 
-        <button
-          className="btn btn-danger w-50"
-          type="button"
-          data-testid="favorite-btn"
-          id="favorite-btn"
-          src={ favorites === null ? whiteHeart : blackHeart }
-          alt="favoritar"
-          onClick={ () => {
-            window.localStorage.setItem('favoriteRecipes', JSON.stringify(favoriteItem));
-            const icon = document.getElementById('favorite-btn');
-            console.log(icon.getAttribute('src'));
-            if (icon.getAttribute('src').includes(whiteHeart)) {
-              icon.setAttribute('src', blackHeart);
-              setFavorites('favoriteRecipes');
-            }
-            if (icon.getAttribute('src') === blackHeart) {
-              icon.setAttribute('src', whiteHeart);
-            }
-          } }
-        >
-          <img src={ favorites === null ? whiteHeart : blackHeart } alt="compartilhar" />
-        </button>
+        </h2>
+
+        <div className="dropdown-divider" />
+
+        <InProgressButtons />
+
+        <div className="dropdown-divider" />
 
         <h4 data-testid="recipe-category">
           {recipeType === 'meal' ? strCategory : strAlcoholic }
         </h4>
 
-        <div className="d-flex flex-column">{checklist}</div>
+        <Checkbox />
 
-        <p data-testid="instructions">
+        <div className="dropdown-divider" />
+
+        <p className="ml-3 mr-3" data-testid="instructions">
           {strInstructions}
         </p>
 
         <button
-          className="btn btn-danger w-50"
+          className="btn btn-danger w-100 ml-1 mr-1"
           type="button"
           data-testid="finish-recipe-btn"
           disabled={ finalList.some((item, i) => item !== boxes[i]) }
@@ -209,6 +113,6 @@ export default function RecipeInProgress() {
           Encerrar
         </button>
       </div>
-    </>
+    </div>
   );
 }
