@@ -63,7 +63,7 @@ export default function RecipeInProgress() {
   );
 
   return (
-    <div style={ { width: '360px' } }>
+    <div style={ { width: 'auto' } }>
       <div>
         <Header />
       </div>
@@ -71,7 +71,7 @@ export default function RecipeInProgress() {
         <img
           src={ recipeType === 'comida' ? strMealThumb : strDrinkThumb }
           alt={ recipeType === 'comida' ? strMeal : strDrink }
-          className="img-fluid"
+          className="img-fluid mx-auto d-block"
           data-testid="recipe-photo"
         />
 
