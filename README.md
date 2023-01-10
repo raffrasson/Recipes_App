@@ -24,7 +24,7 @@ npm install
 ``` 
 ## Executando a aplicação
 
-* Acesse a página via *GitHub Pages* clicando [aqui,](https://raffrasson.github.io/recipes_app)
+* Acesse a página via *GitHub Pages* clicando [aqui,](https://raffrasson.github.io/Recipes_App/)
 * Ou rode localmente, após instalar as dependências, executando:
 
 ```bash
