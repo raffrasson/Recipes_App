@@ -3,6 +3,11 @@
 # Contexto
 Essa aplicação permite ao usuário procurar por receitas de alimentos ou drinks. É possível visualizar, buscar, filtrar, favoritar e acompanhar o progresso de preparação de receitas.
 
+Participaram do do grupo os colegas:
+* Pedro Soares [(GitHub);](https://github.com/allpha23)
+* Gustavo Souza [(GitHub);](https://github.com/gustavogss)
+* Erik Lopes de Oliveira [(GitHub).](https://github.com/eriklopess)
+
 ### Habilidades trabalhadas
 * Consumo de APIs;
 * Uso da *Context API* do React para gerenciamento de estado;
